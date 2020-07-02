@@ -9,7 +9,7 @@ import {
 } from '@navikt/familie-typer';
 import { AxiosResponse, AxiosError } from 'axios';
 
-const useAppAxios = () => {
+export const useAppAxios = () => {
     const [ressurserSomLaster, settRessurserSomLaster] = useState<string[]>([]);
 
     /**
@@ -79,5 +79,3 @@ const useAppAxios = () => {
         useRessurs,
     };
 };
-
-export default useAppAxios;
