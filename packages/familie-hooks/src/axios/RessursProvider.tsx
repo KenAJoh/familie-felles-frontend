@@ -1,3 +1,4 @@
+import createUseContext from 'constate';
 import { useState } from 'react';
 import { FamilieAxiosRequestConfig, preferredAxios, håndterApiRessurs, loggFeil } from './axios';
 import {
@@ -9,7 +10,8 @@ import {
 } from '@navikt/familie-typer';
 import { AxiosResponse, AxiosError } from 'axios';
 
-export const useAppAxios = () => {
+const [RessursProvider, useRessursProvider] = createUseContext(() => {
+    const [autentisert, settAutentisert] = useState(true);
     const [ressurserSomLaster, settRessurserSomLaster] = useState<string[]>([]);
 
     /**
@@ -33,6 +35,9 @@ export const useAppAxios = () => {
                 return håndterApiRessurs(responsRessurs);
             })
             .catch((error: AxiosError) => {
+                if (error.message.includes('401')) {
+                    settAutentisert(false);
+                }
                 loggFeil(error);
 
                 config.påvirkerSystemLaster && fjernRessursSomLaster(ressursId);
@@ -74,8 +79,11 @@ export const useAppAxios = () => {
     };
 
     return {
+        autentisert,
         axiosRequest,
         systemetLaster,
         useRessurs,
     };
-};
+});
+
+export { RessursProvider, useRessursProvider };
