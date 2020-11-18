@@ -1,8 +1,8 @@
 name: Build-Deploy-Npm-Canary
 on:
   push:
-    branches-ignore:
-      - '**'
+    branches:
+      - 'feature/test-publisering'
     paths-ignore:
       - package.json
 
@@ -17,6 +17,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
+          scope: '@navikt'
       - name: Prepare repository
         run: git checkout "${GITHUB_REF:11}"
 
