@@ -65,7 +65,7 @@ export interface DokumentlisteProps {
     onClick: () => void;
 }
 
-const Dokumentliste: React.FC<DokumentlisteProps> = ({ tittel, dato, journalposttype, onClick }) => {
+const DokumentlisteElement: React.FC<DokumentlisteProps> = ({ tittel, dato, journalposttype, onClick }) => {
     return (
         <StyledDokumentliste
             role={'button'}
@@ -82,4 +82,4 @@ const Dokumentliste: React.FC<DokumentlisteProps> = ({ tittel, dato, journalpost
     );
 };
 
-export default Dokumentliste;
+export default DokumentlisteElement;

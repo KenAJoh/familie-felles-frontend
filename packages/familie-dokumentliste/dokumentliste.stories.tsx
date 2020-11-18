@@ -1,9 +1,9 @@
 import React from 'react';
-import Dokumentliste from './src';
+import DokumentlisteElement from './src';
 import { Journalposttype } from '@navikt/familie-typer';
 
 export default {
-    component: Dokumentliste,
+    component: DokumentlisteElement,
     parameters: {
         componentSubtitle: 'Dokumentliste-komponenten brukes til å vise informasjon om dokumenter fra journalposter.',
     },
@@ -41,7 +41,7 @@ const dokumenter = [
 ];
 export const dokumentlistekomponent = () => {
     return dokumenter.map((dokument) => {
-        return <Dokumentliste
+        return <DokumentlisteElement
             tittel={dokument.tittel}
             journalposttype={dokument.journalposttype}
             dato={dokument.dato}
