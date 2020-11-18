@@ -1,5 +1,5 @@
 {
-    "name": "familie-felles-frontend",
+    "name": "@navikt/familie-felles-frontend",
     "private": true,
     "repository": "https://github.com/navikt/familie-felles-frontend.git",
     "license": "MIT",
