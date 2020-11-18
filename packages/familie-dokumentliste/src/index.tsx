@@ -40,7 +40,6 @@ const StyledDokumentnavn = styled(Element)`
     grid-area: tittel;
 `;
 
-
 interface JournalpostikonProps {
     journalposttype: Journalposttype;
 }
