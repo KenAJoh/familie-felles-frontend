@@ -39,7 +39,8 @@ const dokumenter = [
         dato: '2020-12-02'
     },
 ];
-export const dokumentlistekomponent = () => {
+
+export const DokumentElementKomponent = () => {
     return dokumenter.map((dokument) => {
         return <DokumentlisteElement
             tittel={dokument.tittel}
